@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino de Confianza | Plataforma Verificada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #1A1A2E;
+            --dark-secondary: #0F3460;
+            --green-accent: #2196F3; /* Un azul cian que simula el verde de WhatsApp y contrasta bien */
+            --text-light: #E0E0E0;
+            --text-dark: #333333;
+            --border-color: #3B3B4B;
+            --button-hover-darken: #1A70BF;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- Header Fijo --- */
+        .fixed-header {
+            background-color: var(--dark-secondary);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .fixed-header .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--green-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .fixed-header .whatsapp-button-small-fixed {
+            background-color: var(--green-accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .fixed-header .whatsapp-button-small-fixed:hover {
+            background-color: var(--button-hover-darken);
+            transform: translateY(-2px);
+        }
+
+        /* Ajuste de padding para el contenido principal debido al header fijo */
+        main {
+            padding-top: 80px; /* Suficiente espacio para que el header no tape el contenido */
+        }
+
+        /* --- Hero Section (Encabezado Principal) --- */
+        .hero-section {
+            background-color: var(--dark-secondary);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--green-accent);
+            animation: fadeIn 1s ease-out; /* Animación de entrada */
+        }
+
+        .hero-section h1 {
+            font-size: 3.5em;
+            color: var(--green-accent);
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-section p {
+            font-size: 1.5em;
+            color: var(--text-light);
+            margin-top: 0;
+            font-weight: 400;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--dark-bg);
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            background-color: var(--green-accent);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.8em;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3); /* Sombra para el botón principal */
+            text-transform: uppercase;
+            animation: pulse 2s infinite; /* Animación de pulso */
+        }
+
+        .whatsapp-button:hover {
+            background-color: var(--button-hover-darken);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 255, 0, 0.4);
+            animation: none; /* Desactiva el pulso al hacer hover */
+        }
+
+        .whatsapp-button i {
+            margin-right: 10px;
+        }
+
+        /* --- General Section Styling --- */
+        .section {
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeIn 1s ease-out; /* Animación de entrada */
+            animation-timeline: view(); /* Animación basada en la visibilidad */
+            animation-range: entry 0% cover 30%; /* Se activa cuando la sección entra en el 30% de la vista */
+        }
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            color: var(--green-accent);
+            margin-bottom: 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* --- Beneficios Section --- */
+        .benefits-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .benefit-item {
+            background-color: var(--dark-secondary);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            min-width: 250px;
+            max-width: 30%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-item i {
+            font-size: 3em;
+            color: var(--green-accent);
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.5em;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .benefit-item p {
+            font-size: 1em;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials .testimonial-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alineación arriba para el testimonio */
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .testimonials .data-point {
+            background-color: var(--dark-secondary);
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            min-width: 280px;
+            max-width: 45%;
+            box-sizing: border-box;
+        }
+
+        .testimonials .data-point h3 {
+            font-size: 3em;
+            color: var(--green-accent);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .testimonials .data-point p {
+            font-size: 1.2em;
+            color: var(--text-light);
+            margin-top: 0;
+        }
+
+        .testimonials .data-point .trustpilot-rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.5em;
+            color: var(--text-light);
+        }
+
+        .testimonials .data-point .trustpilot-rating .fa-star {
+            color: gold;
+        }
+
+        .testimonials .client-quote {
+            background-color: var(--dark-secondary);
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            min-width: 280px;
+            max-width: 45%;
+            box-sizing: border-box;
+            font-style: italic;
+            position: relative;
+            text-align: left;
+        }
+
+        .testimonials .client-quote p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .testimonials .client-quote cite {
+            display: block;
+            font-size: 0.9em;
+            color: var(--green-accent);
+            font-style: normal;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* --- Promotions Section --- */
+        .promotions .promo-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .promotions .promo-item {
+            background-color: var(--dark-secondary);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            min-width: 280px;
+            max-width: 45%;
+            box-sizing: border-box;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .promotions .promo-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .promotions .promo-item h3 {
+            font-size: 2em;
+            color: var(--green-accent);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .promotions .promo-item p {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .promotions .promo-item .whatsapp-button-small {
+            background-color: var(--green-accent);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .promotions .promo-item .whatsapp-button-small:hover {
+            background-color: var(--button-hover-darken);
+            transform: translateY(-2px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-secondary);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 16px rgba(0, 255, 0, 0.5);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3);
+            }
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .fixed-header .logo {
+                font-size: 1.2em;
+            }
+            .fixed-header .whatsapp-button-small-fixed {
+                padding: 8px 15px;
+                font-size: 0.8em;
+            }
+            main {
+                padding-top: 70px;
+            }
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .hero-section p {
+                font-size: 1.2em;
+            }
+            .whatsapp-button {
+                font-size: 1.5em;
+                padding: 15px 30px;
+            }
+            .section h2 {
+                font-size: 2em;
+            }
+            .testimonials .data-point,
+            .promotions .promo-item,
+            .benefit-item,
+            .testimonials .client-quote {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+            .testimonials .testimonial-content,
+            .promotions .promo-grid,
+            .benefits-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .fixed-header {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .fixed-header .logo {
+                margin-bottom: 10px;
+            }
+            main {
+                padding-top: 100px; /* Más espacio si el header es en dos líneas */
+            }
+            .hero-section h1 {
+                font-size: 2em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+            .whatsapp-button {
+                font-size: 1.2em;
+                padding: 12px 25px;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            .section h2 {
+                font-size: 1.8em;
+            }
+            .testimonials .data-point h3 {
+                font-size: 2.5em;
+            }
+            .testimonials .data-point p {
+                font-size: 1em;
+            }
+            .promotions .promo-item h3 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fixed-header">
+        <div class="logo">Fusion5</div>
+        <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button-small-fixed">
+            <i class="fab fa-whatsapp"></i> Contactar
+        </a>
+    </div>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>PLATAFORMA VERIFICADA</h1>
+                <p>CASINO DE CONFIANZA</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> CONTACTAR AL EQUIPO
+                </a>
+            </div>
+        </section>
+
+        <section class="section benefits">
+            <div class="container">
+                <h2>¿POR QUÉ ELEGIRNOS?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>Retiros Instantáneos</h3>
+                        <p>Accede a tus ganancias al instante, sin esperas ni demoras.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-headset"></i>
+                        <h3>Soporte 24/7</h3>
+                        <p>Nuestro equipo está siempre disponible para ayudarte, en cualquier momento.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Seguridad Garantizada</h3>
+                        <p>Tus datos y transacciones protegidos con la más alta tecnología.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section testimonials">
+            <div class="container">
+                <h2>NUESTROS CLIENTES LO CONFIRMAN</h2>
+                <div class="testimonial-content">
+                    <div class="data-point">
+                        <h3>+10,000</h3>
+                        <p>CLIENTES GANANDO DIARIAMENTE</p>
+                    </div>
+                    <div class="data-point">
+                        <div class="trustpilot-rating">
+                            <span>4.9/5</span>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <p>en Trustpilot</p>
+                        </div>
+                        <p>Calificación Verificada</p>
+                    </div>
+                    <div class="client-quote">
+                        <p>"Desde que me uní a esta plataforma, mis ganancias han sido constantes y el proceso de retiro es increíblemente rápido. ¡Finalmente un casino online en el que se puede confiar de verdad!"</p>
+                        <cite>— Sofía R.</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section promotions">
+            <div class="container">
+                <h2>APROVECHA NUESTRAS PROMOCIONES</h2>
+                <div class="promo-grid">
+                    <div class="promo-item">
+                        <h3>PREMIO PAGADO</h3>
+                        <p>Tu victoria está garantizada. Confía en la plataforma que sí paga.</p>
+                        <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button-small">
+                            <i class="fab fa-whatsapp"></i> Consultar
+                        </a>
+                    </div>
+                    <div class="promo-item">
+                        <h3>BONO ACTIVO</h3>
+                        <p>¡No te pierdas los beneficios! Recibe tu bono exclusivo ahora.</p>
+                        <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button-small">
+                            <i class="fab fa-whatsapp"></i> Obtener Bono
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Plataforma de Casino Confiable. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
