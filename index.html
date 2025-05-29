@@ -10,22 +10,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --light-bg: #F0F2F5; /* Fondo claro */
-            --primary-blue: #007BFF; /* Azul principal */
-            --accent-orange: #FFC107; /* Amarillo/Naranja de acento */
-            --text-dark: #333333;
+            --dark-bg: #1E272C; /* Fondo oscuro, similar a WhatsApp */
+            --whatsapp-green: #25D366; /* Verde principal de WhatsApp */
+            --whatsapp-green-lighter: #128C7E; /* Verde más claro para toques */
             --text-light: #FFFFFF;
-            --border-color-light: #D0D0D0;
-            --button-hover-darken-blue: #0056b3;
-            --button-hover-darken-orange: #e0a800;
+            --text-dark: #333333;
+            --border-color-dark: #3B4A50;
+            --button-hover-green: #15803d; /* Verde más oscuro al hacer hover */
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--light-bg);
-            color: var(--text-dark);
+            background-color: var(--dark-bg);
+            color: var(--text-light);
             line-height: 1.6;
             scroll-behavior: smooth;
         }
@@ -39,7 +38,7 @@
 
         /* --- Fixed Header --- */
         .fixed-header {
-            background-color: var(--primary-blue);
+            background-color: var(--dark-bg);
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
@@ -49,7 +48,8 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid var(--whatsapp-green); /* Toque verde */
         }
 
         .fixed-header .logo {
@@ -61,8 +61,8 @@
         }
 
         .fixed-header .whatsapp-button-small-fixed {
-            background-color: var(--accent-orange);
-            color: var(--text-dark);
+            background-color: var(--whatsapp-green);
+            color: var(--text-light);
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
@@ -72,7 +72,7 @@
         }
 
         .fixed-header .whatsapp-button-small-fixed:hover {
-            background-color: var(--button-hover-darken-orange);
+            background-color: var(--button-hover-green);
             transform: translateY(-2px);
         }
 
@@ -82,12 +82,13 @@
 
         /* --- Hero and Main CTA Section (Combined) --- */
         .hero-cta-section {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #004085 100%);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #15202B 100%); /* Degradado sutil */
             padding: 80px 0;
             text-align: center;
             color: var(--text-light);
             animation: fadeIn 1s ease-out;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra interna para profundidad */
+            border-bottom: 3px solid var(--whatsapp-green); /* Toque verde */
         }
 
         .hero-cta-section h1 {
@@ -96,7 +97,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--accent-orange); /* Título en acento */
+            color: var(--whatsapp-green); /* Título en verde */
         }
 
         .hero-cta-section p {
@@ -108,37 +109,36 @@
 
         .whatsapp-button {
             display: inline-block;
-            background-color: var(--accent-orange);
-            color: var(--text-dark); /* Texto oscuro para contraste en botón claro */
+            background-color: var(--whatsapp-green);
+            color: var(--text-light);
             padding: 18px 40px;
             border-radius: 10px;
             text-decoration: none;
             font-size: 1.8em;
             font-weight: 700;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 12px rgba(37, 211, 102, 0.5); /* Sombra verde */
             text-transform: uppercase;
             animation: pulse 2s infinite;
         }
 
         .whatsapp-button:hover {
-            background-color: var(--button-hover-darken-orange);
+            background-color: var(--button-hover-green);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 16px rgba(37, 211, 102, 0.6);
             animation: none;
         }
 
         .whatsapp-button i {
             margin-right: 10px;
-            color: var(--text-dark); /* Asegura que el icono también sea oscuro */
         }
 
         /* --- General Section Styling --- */
         .section {
             padding: 60px 0;
             text-align: center;
-            border-bottom: 1px solid var(--border-color-light);
-            background-color: var(--light-bg);
+            border-bottom: 1px solid var(--border-color-dark); /* Borde más oscuro */
+            background-color: var(--dark-bg); /* Fondo oscuro */
             animation: fadeIn 1s ease-out;
             animation-timeline: view();
             animation-range: entry 0% cover 30%;
@@ -149,7 +149,7 @@
 
         .section h2 {
             font-size: 2.5em;
-            color: var(--primary-blue);
+            color: var(--whatsapp-green); /* Títulos en verde */
             margin-bottom: 40px;
             font-weight: 600;
             text-transform: uppercase;
@@ -165,10 +165,10 @@
         }
 
         .benefit-item {
-            background-color: var(--text-light); /* Fondo blanco para los items */
+            background-color: #263238; /* Gris oscuro para las tarjetas */
             padding: 25px; /* Reducir padding */
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             flex: 1;
             min-width: 250px;
             max-width: 30%;
@@ -177,7 +177,7 @@
             flex-direction: column;
             align-items: center;
             transition: transform 0.3s ease;
-            color: var(--text-dark); /* Texto oscuro para items claros */
+            color: var(--text-light);
         }
 
         .benefit-item:hover {
@@ -186,13 +186,13 @@
 
         .benefit-item i {
             font-size: 2.5em; /* Reducir tamaño del icono */
-            color: var(--primary-blue); /* Color del icono */
+            color: var(--whatsapp-green); /* Iconos en verde */
             margin-bottom: 10px; /* Reducir margen */
         }
 
         .benefit-item h3 {
             font-size: 1.3em; /* Reducir tamaño del título */
-            color: var(--primary-blue);
+            color: var(--whatsapp-green); /* Títulos en verde */
             margin-bottom: 8px;
         }
 
@@ -203,17 +203,17 @@
 
         /* --- Testimonials (Simplified) --- */
         .testimonials .data-point {
-            background-color: var(--text-light);
+            background-color: #263238;
             padding: 25px 30px; /* Reducir padding */
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             margin-bottom: 25px; /* Margen para cuando estén apilados en móvil */
-            color: var(--text-dark);
+            color: var(--text-light);
         }
 
         .testimonials .data-point h3 {
             font-size: 2.5em; /* Reducir tamaño del número */
-            color: var(--primary-blue);
+            color: var(--whatsapp-green); /* Número en verde */
             margin-bottom: 8px;
         }
 
@@ -234,15 +234,15 @@
 
         /* --- Promotions (Simplified - One Item Focus) --- */
         .promotions .promo-item {
-            background-color: var(--text-light);
+            background-color: #263238;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             max-width: 500px; /* Limitar ancho para que no se extienda demasiado en desktop */
             margin: 0 auto; /* Centrar el item */
             text-align: center;
             transition: transform 0.3s ease;
-            color: var(--text-dark);
+            color: var(--text-light);
         }
         
         .promotions .promo-item:hover {
@@ -251,7 +251,7 @@
 
         .promotions .promo-item h3 {
             font-size: 2em;
-            color: var(--primary-blue);
+            color: var(--whatsapp-green); /* Título en verde */
             margin-bottom: 15px;
             font-weight: 600;
         }
@@ -262,8 +262,8 @@
         }
 
         .promotions .promo-item .whatsapp-button-small {
-            background-color: var(--accent-orange);
-            color: var(--text-dark);
+            background-color: var(--whatsapp-green);
+            color: var(--text-light);
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
@@ -273,18 +273,19 @@
         }
 
         .promotions .promo-item .whatsapp-button-small:hover {
-            background-color: var(--button-hover-darken-orange);
+            background-color: var(--button-hover-green);
             transform: translateY(-2px);
         }
 
         /* --- Footer --- */
         footer {
-            background-color: var(--primary-blue);
+            background-color: var(--dark-bg);
             color: var(--text-light);
             text-align: center;
             padding: 30px 20px;
             font-size: 0.9em;
             margin-top: 50px;
+            border-top: 2px solid var(--whatsapp-green); /* Toque verde */
         }
 
         /* --- Keyframe Animations --- */
@@ -294,9 +295,9 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); }
-            100% { transform: scale(1); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); }
+            0% { transform: scale(1); box-shadow: 0 6px 12px rgba(37, 211, 102, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 16px rgba(37, 211, 102, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 6px 12px rgba(37, 211, 102, 0.5); }
         }
 
         /* --- Responsive Design --- */
@@ -354,7 +355,6 @@
             <div class="container">
                 <h1>PLATAFORMA VERIFICADA</h1>
                 <p>CASINO DE CONFIANZA</p>
-                <p>Envianos mensaje para comenzar</p>
                 <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button">
                     <i class="fab fa-whatsapp"></i> CONTACTAR POR WHATSAPP
                 </a>
@@ -388,7 +388,7 @@
             <div class="container">
                 <h2>NUESTROS CLIENTES LO CONFIRMAN</h2>
                 <div class="data-point">
-                    <h3>+8,000</h3>
+                    <h3>+10,000</h3>
                     <p>CLIENTES GANANDO DIARIAMENTE</p>
                 </div>
                 <div class="data-point">
@@ -411,7 +411,7 @@
                 <h2>APROVECHA NUESTRO BONO</h2>
                 <div class="promo-item">
                     <h3>BONO ACTIVO EXCLUSIVO</h3>
-                    <p>Recibe tu bono especial al contactar a nuestro equipo **vía WhatsApp**.</p>
+                    <p>Recibe tu bono especial al contactar a nuestro equipo <b>vía WhatsApp</b>.</p>
                     <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button-small">
                         <i class="fab fa-whatsapp"></i> Obtener Bono Vía WhatsApp
                     </a>
@@ -424,6 +424,10 @@
         <div class="container">
             <p>&copy; 2025 Plataforma de Casino Confiable. Todos los derechos reservados.</p>
         </div>
+    </footer>
+
+</body>
+</html>
     </footer>
 
 </body>
