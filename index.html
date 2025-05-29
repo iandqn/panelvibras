@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casino de Confianza | Plataforma Verificada</title>
+    <title>Casino Premium | Juega con Confianza</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --dark-bg: #1A1A2E;
-            --dark-secondary: #0F3460;
-            --green-accent: #2196F3; /* Un azul cian que simula el verde de WhatsApp y contrasta bien */
-            --text-light: #E0E0E0;
+            --light-bg: #F0F2F5; /* Fondo claro */
+            --primary-blue: #007BFF; /* Azul principal */
+            --accent-orange: #FFC107; /* Amarillo/Naranja de acento */
             --text-dark: #333333;
-            --border-color: #3B3B4B;
-            --button-hover-darken: #1A70BF;
+            --text-light: #FFFFFF;
+            --border-color-light: #D0D0D0;
+            --button-hover-darken-blue: #0056b3;
+            --button-hover-darken-orange: #e0a800;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
+            background-color: var(--light-bg);
+            color: var(--text-dark);
             line-height: 1.6;
             scroll-behavior: smooth;
         }
@@ -36,9 +37,9 @@
             box-sizing: border-box;
         }
 
-        /* --- Header Fijo --- */
+        /* --- Fixed Header --- */
         .fixed-header {
-            background-color: var(--dark-secondary);
+            background-color: var(--primary-blue);
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
@@ -48,20 +49,20 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .fixed-header .logo {
             font-size: 1.5em;
             font-weight: 700;
-            color: var(--green-accent);
+            color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .fixed-header .whatsapp-button-small-fixed {
-            background-color: var(--green-accent);
-            color: white;
+            background-color: var(--accent-orange);
+            color: var(--text-dark);
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
@@ -71,81 +72,76 @@
         }
 
         .fixed-header .whatsapp-button-small-fixed:hover {
-            background-color: var(--button-hover-darken);
+            background-color: var(--button-hover-darken-orange);
             transform: translateY(-2px);
         }
 
-        /* Ajuste de padding para el contenido principal debido al header fijo */
         main {
-            padding-top: 80px; /* Suficiente espacio para que el header no tape el contenido */
+            padding-top: 80px; /* Space for fixed header */
         }
 
-        /* --- Hero Section (Encabezado Principal) --- */
-        .hero-section {
-            background-color: var(--dark-secondary);
+        /* --- Hero and Main CTA Section (Combined) --- */
+        .hero-cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #004085 100%);
             padding: 80px 0;
             text-align: center;
-            border-bottom: 3px solid var(--green-accent);
-            animation: fadeIn 1s ease-out; /* Animación de entrada */
+            color: var(--text-light);
+            animation: fadeIn 1s ease-out;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .hero-section h1 {
+        .hero-cta-section h1 {
             font-size: 3.5em;
-            color: var(--green-accent);
             margin-bottom: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: var(--accent-orange); /* Título en acento */
         }
 
-        .hero-section p {
+        .hero-cta-section p {
             font-size: 1.5em;
-            color: var(--text-light);
             margin-top: 0;
             font-weight: 400;
-        }
-
-        /* --- CTA Section --- */
-        .cta-section {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: var(--dark-bg);
+            margin-bottom: 40px;
         }
 
         .whatsapp-button {
             display: inline-block;
-            background-color: var(--green-accent);
-            color: white;
+            background-color: var(--accent-orange);
+            color: var(--text-dark); /* Texto oscuro para contraste en botón claro */
             padding: 18px 40px;
             border-radius: 10px;
             text-decoration: none;
             font-size: 1.8em;
             font-weight: 700;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3); /* Sombra para el botón principal */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             text-transform: uppercase;
-            animation: pulse 2s infinite; /* Animación de pulso */
+            animation: pulse 2s infinite;
         }
 
         .whatsapp-button:hover {
-            background-color: var(--button-hover-darken);
+            background-color: var(--button-hover-darken-orange);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 255, 0, 0.4);
-            animation: none; /* Desactiva el pulso al hacer hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            animation: none;
         }
 
         .whatsapp-button i {
             margin-right: 10px;
+            color: var(--text-dark); /* Asegura que el icono también sea oscuro */
         }
 
         /* --- General Section Styling --- */
         .section {
             padding: 60px 0;
             text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            animation: fadeIn 1s ease-out; /* Animación de entrada */
-            animation-timeline: view(); /* Animación basada en la visibilidad */
-            animation-range: entry 0% cover 30%; /* Se activa cuando la sección entra en el 30% de la vista */
+            border-bottom: 1px solid var(--border-color-light);
+            background-color: var(--light-bg);
+            animation: fadeIn 1s ease-out;
+            animation-timeline: view();
+            animation-range: entry 0% cover 30%;
         }
         .section:last-of-type {
             border-bottom: none;
@@ -153,26 +149,26 @@
 
         .section h2 {
             font-size: 2.5em;
-            color: var(--green-accent);
+            color: var(--primary-blue);
             margin-bottom: 40px;
             font-weight: 600;
             text-transform: uppercase;
         }
 
-        /* --- Beneficios Section --- */
+        /* --- Benefits Section (Streamlined) --- */
         .benefits-grid {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 30px; /* Reducir gap para compactar */
             margin-top: 30px;
         }
 
         .benefit-item {
-            background-color: var(--dark-secondary);
-            padding: 30px;
+            background-color: var(--text-light); /* Fondo blanco para los items */
+            padding: 25px; /* Reducir padding */
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             flex: 1;
             min-width: 250px;
             max-width: 30%;
@@ -181,6 +177,7 @@
             flex-direction: column;
             align-items: center;
             transition: transform 0.3s ease;
+            color: var(--text-dark); /* Texto oscuro para items claros */
         }
 
         .benefit-item:hover {
@@ -188,139 +185,85 @@
         }
 
         .benefit-item i {
-            font-size: 3em;
-            color: var(--green-accent);
-            margin-bottom: 15px;
+            font-size: 2.5em; /* Reducir tamaño del icono */
+            color: var(--primary-blue); /* Color del icono */
+            margin-bottom: 10px; /* Reducir margen */
         }
 
         .benefit-item h3 {
-            font-size: 1.5em;
-            color: var(--text-light);
-            margin-bottom: 10px;
+            font-size: 1.3em; /* Reducir tamaño del título */
+            color: var(--primary-blue);
+            margin-bottom: 8px;
         }
 
         .benefit-item p {
-            font-size: 1em;
-            color: var(--text-light);
+            font-size: 0.95em; /* Reducir tamaño del párrafo */
             text-align: center;
         }
 
-        /* --- Testimonials Section --- */
-        .testimonials .testimonial-content {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Alineación arriba para el testimonio */
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
+        /* --- Testimonials (Simplified) --- */
         .testimonials .data-point {
-            background-color: var(--dark-secondary);
-            padding: 30px 40px;
+            background-color: var(--text-light);
+            padding: 25px 30px; /* Reducir padding */
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            flex: 1;
-            min-width: 280px;
-            max-width: 45%;
-            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px; /* Margen para cuando estén apilados en móvil */
+            color: var(--text-dark);
         }
 
         .testimonials .data-point h3 {
-            font-size: 3em;
-            color: var(--green-accent);
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 2.5em; /* Reducir tamaño del número */
+            color: var(--primary-blue);
+            margin-bottom: 8px;
         }
 
         .testimonials .data-point p {
-            font-size: 1.2em;
-            color: var(--text-light);
+            font-size: 1em; /* Reducir tamaño del texto */
             margin-top: 0;
         }
 
         .testimonials .data-point .trustpilot-rating {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 1.5em;
-            color: var(--text-light);
+            font-size: 1.3em; /* Reducir tamaño */
         }
 
         .testimonials .data-point .trustpilot-rating .fa-star {
             color: gold;
         }
+        
+        /* Removed client-quote to shorten */
 
-        .testimonials .client-quote {
-            background-color: var(--dark-secondary);
-            padding: 30px 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            flex: 1;
-            min-width: 280px;
-            max-width: 45%;
-            box-sizing: border-box;
-            font-style: italic;
-            position: relative;
-            text-align: left;
-        }
-
-        .testimonials .client-quote p {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        .testimonials .client-quote cite {
-            display: block;
-            font-size: 0.9em;
-            color: var(--green-accent);
-            font-style: normal;
-            font-weight: 600;
-            text-align: right;
-        }
-
-        /* --- Promotions Section --- */
-        .promotions .promo-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
+        /* --- Promotions (Simplified - One Item Focus) --- */
         .promotions .promo-item {
-            background-color: var(--dark-secondary);
+            background-color: var(--text-light);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            flex: 1;
-            min-width: 280px;
-            max-width: 45%;
-            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px; /* Limitar ancho para que no se extienda demasiado en desktop */
+            margin: 0 auto; /* Centrar el item */
             text-align: center;
             transition: transform 0.3s ease;
+            color: var(--text-dark);
         }
-
+        
         .promotions .promo-item:hover {
             transform: translateY(-5px);
         }
 
         .promotions .promo-item h3 {
             font-size: 2em;
-            color: var(--green-accent);
+            color: var(--primary-blue);
             margin-bottom: 15px;
             font-weight: 600;
         }
 
         .promotions .promo-item p {
             font-size: 1.1em;
-            color: var(--text-light);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .promotions .promo-item .whatsapp-button-small {
-            background-color: var(--green-accent);
-            color: white;
+            background-color: var(--accent-orange);
+            color: var(--text-dark);
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
@@ -330,13 +273,13 @@
         }
 
         .promotions .promo-item .whatsapp-button-small:hover {
-            background-color: var(--button-hover-darken);
+            background-color: var(--button-hover-darken-orange);
             transform: translateY(-2px);
         }
 
         /* --- Footer --- */
         footer {
-            background-color: var(--dark-secondary);
+            background-color: var(--primary-blue);
             color: var(--text-light);
             text-align: center;
             padding: 30px 20px;
@@ -346,107 +289,54 @@
 
         /* --- Keyframe Animations --- */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 8px 16px rgba(0, 255, 0, 0.5);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3);
-            }
+            0% { transform: scale(1); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); }
+            100% { transform: scale(1); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); }
         }
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .fixed-header .logo {
-                font-size: 1.2em;
-            }
-            .fixed-header .whatsapp-button-small-fixed {
-                padding: 8px 15px;
-                font-size: 0.8em;
-            }
-            main {
-                padding-top: 70px;
-            }
-            .hero-section h1 {
-                font-size: 2.5em;
-            }
-            .hero-section p {
-                font-size: 1.2em;
-            }
-            .whatsapp-button {
-                font-size: 1.5em;
-                padding: 15px 30px;
-            }
-            .section h2 {
-                font-size: 2em;
-            }
+            .fixed-header .logo { font-size: 1.2em; }
+            .fixed-header .whatsapp-button-small-fixed { padding: 8px 15px; font-size: 0.8em; }
+            main { padding-top: 70px; }
+
+            .hero-cta-section h1 { font-size: 2.5em; }
+            .hero-cta-section p { font-size: 1.2em; }
+            .whatsapp-button { font-size: 1.5em; padding: 15px 30px; }
+            
+            .section h2 { font-size: 2em; }
+
+            .benefit-item { max-width: 48%; /* Dos columnas */ margin-bottom: 20px; }
+            .benefits-grid { flex-direction: row; justify-content: center; } /* Mantener en fila si es posible */
+
             .testimonials .data-point,
-            .promotions .promo-item,
-            .benefit-item,
-            .testimonials .client-quote {
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-            .testimonials .testimonial-content,
-            .promotions .promo-grid,
-            .benefits-grid {
-                flex-direction: column;
-                align-items: center;
-            }
+            .promotions .promo-item { max-width: 100%; margin-bottom: 20px; }
+            .testimonials .testimonial-content { flex-direction: column; align-items: center; }
         }
 
         @media (max-width: 480px) {
-            .fixed-header {
-                flex-direction: column;
-                padding: 10px;
-            }
-            .fixed-header .logo {
-                margin-bottom: 10px;
-            }
-            main {
-                padding-top: 100px; /* Más espacio si el header es en dos líneas */
-            }
-            .hero-section h1 {
-                font-size: 2em;
-            }
-            .hero-section p {
-                font-size: 1em;
-            }
-            .whatsapp-button {
-                font-size: 1.2em;
-                padding: 12px 25px;
-            }
-            .section {
-                padding: 40px 0;
-            }
-            .section h2 {
-                font-size: 1.8em;
-            }
-            .testimonials .data-point h3 {
-                font-size: 2.5em;
-            }
-            .testimonials .data-point p {
-                font-size: 1em;
-            }
-            .promotions .promo-item h3 {
-                font-size: 1.5em;
-            }
+            .fixed-header { flex-direction: column; padding: 10px; }
+            .fixed-header .logo { margin-bottom: 10px; }
+            main { padding-top: 100px; }
+
+            .hero-cta-section h1 { font-size: 2em; }
+            .hero-cta-section p { font-size: 1em; }
+            .whatsapp-button { font-size: 1.2em; padding: 12px 25px; }
+            
+            .section { padding: 40px 0; }
+            .section h2 { font-size: 1.8em; }
+
+            .benefit-item { max-width: 100%; } /* Una columna */
+            .benefits-grid { flex-direction: column; }
+
+            .testimonials .data-point h3 { font-size: 2.5em; }
+            .testimonials .data-point p { font-size: 1em; }
+            .promotions .promo-item h3 { font-size: 1.5em; }
         }
     </style>
 </head>
@@ -460,15 +350,10 @@
     </div>
 
     <main>
-        <section class="hero-section">
+        <section class="hero-cta-section">
             <div class="container">
                 <h1>PLATAFORMA VERIFICADA</h1>
                 <p>CASINO DE CONFIANZA</p>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container">
                 <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button">
                     <i class="fab fa-whatsapp"></i> CONTACTAR AL EQUIPO
                 </a>
@@ -481,18 +366,18 @@
                 <div class="benefits-grid">
                     <div class="benefit-item">
                         <i class="fas fa-hand-holding-usd"></i>
-                        <h3>Retiros Instantáneos</h3>
+                        <h3>Retiros Rápidos</h3>
                         <p>Accede a tus ganancias al instante, sin esperas ni demoras.</p>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-headset"></i>
                         <h3>Soporte 24/7</h3>
-                        <p>Nuestro equipo está siempre disponible para ayudarte, en cualquier momento.</p>
+                        <p>Nuestro equipo está siempre disponible para ayudarte.</p>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-shield-alt"></i>
-                        <h3>Seguridad Garantizada</h3>
-                        <p>Tus datos y transacciones protegidos con la más alta tecnología.</p>
+                        <h3>Seguridad Total</h3>
+                        <p>Tus datos y transacciones protegidos con alta tecnología.</p>
                     </div>
                 </div>
             </div>
@@ -501,49 +386,34 @@
         <section class="section testimonials">
             <div class="container">
                 <h2>NUESTROS CLIENTES LO CONFIRMAN</h2>
-                <div class="testimonial-content">
-                    <div class="data-point">
-                        <h3>+10,000</h3>
-                        <p>CLIENTES GANANDO DIARIAMENTE</p>
+                <div class="data-point">
+                    <h3>+10,000</h3>
+                    <p>CLIENTES GANANDO DIARIAMENTE</p>
+                </div>
+                <div class="data-point">
+                    <div class="trustpilot-rating">
+                        <span>4.9/5</span>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <p>en Trustpilot</p>
                     </div>
-                    <div class="data-point">
-                        <div class="trustpilot-rating">
-                            <span>4.9/5</span>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <p>en Trustpilot</p>
-                        </div>
-                        <p>Calificación Verificada</p>
-                    </div>
-                    <div class="client-quote">
-                        <p>"Desde que me uní a esta plataforma, mis ganancias han sido constantes y el proceso de retiro es increíblemente rápido. ¡Finalmente un casino online en el que se puede confiar de verdad!"</p>
-                        <cite>— Sofía R.</cite>
-                    </div>
+                    <p>Calificación Verificada</p>
                 </div>
             </div>
         </section>
 
         <section class="section promotions">
             <div class="container">
-                <h2>APROVECHA NUESTRAS PROMOCIONES</h2>
-                <div class="promo-grid">
-                    <div class="promo-item">
-                        <h3>PREMIO PAGADO</h3>
-                        <p>Tu victoria está garantizada. Confía en la plataforma que sí paga.</p>
-                        <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button-small">
-                            <i class="fab fa-whatsapp"></i> Consultar
-                        </a>
-                    </div>
-                    <div class="promo-item">
-                        <h3>BONO ACTIVO</h3>
-                        <p>¡No te pierdas los beneficios! Recibe tu bono exclusivo ahora.</p>
-                        <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button-small">
-                            <i class="fab fa-whatsapp"></i> Obtener Bono
-                        </a>
-                    </div>
+                <h2>APROVECHA NUESTRO BONO</h2>
+                <div class="promo-item">
+                    <h3>BONO ACTIVO EXCLUSIVO</h3>
+                    <p>¡No te pierdas los beneficios! Recibe tu bono especial al contactar.</p>
+                    <a href="https://wa.me/XXXXXXXXXXX" target="_blank" class="whatsapp-button-small">
+                        <i class="fab fa-whatsapp"></i> Obtener Bono
+                    </a>
                 </div>
             </div>
         </section>
@@ -551,7 +421,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Plataforma de Casino Confiable. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Plataforma de Panel Vibras. Todos los derechos reservados.</p>
         </div>
     </footer>
 
