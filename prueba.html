@@ -399,7 +399,7 @@
     <script>
         // Configuración de Firebase (misma que en tu gestor)
         const firebaseConfig = {
-            apiKey: "AIzaSyDsCYwaKb-TdtYOytNV98A2ZLtlPCYxRM", // ✅ CLAVE DE API ACTUALIZADA
+            apiKey: "AIzaSyDsCYwaKb-TdtYOytNV98A7ZLtlPCkYxRM", // ✅ CLAVE DE API ACTUALIZADA
             authDomain: "prueba-3efec.firebaseapp.com",
             projectId: "prueba-3efec",
             storageBucket: "prueba-3efec.appspot.com",
@@ -493,7 +493,7 @@
                 
                 // Actualizar todos los botones y hacerlos clicables
                 waButtons.forEach(button => {
-                    button.href = `https://wa.me/5491137948704?text=${mensaje}`; // Usamos el número hardcodeado
+                    button.href = `https://wa.me/${numeroWhatsappHardcoded}?text=${mensaje}`; // Usamos el número hardcodeado
                     button.style.pointerEvents = 'auto'; // Hacemos que sea clicable
                     button.classList.add('is-ready'); // Añade clase para indicar que está listo
                     // Eliminar listener anterior si existe para evitar duplicados en recargas de SPA o similares
