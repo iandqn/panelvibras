@@ -26,7 +26,6 @@
     src="https://www.facebook.com/tr?id=567660276401151&ev=PageView&noscript=1"
     /></noscript>
     <script>
-      // Este script existente se va a MODIFICAR para incluir Firebase y prevenir la redirección
       document.addEventListener('DOMContentLoaded', function() {
         // La lógica de los botones se moverá a nuestra función principal inicializarLanding
       });
@@ -177,9 +176,9 @@
             margin-right: 10px;
         }
         .whatsapp-cta-button { /* Clase base para todos los botones que se gestionarán */
-            /* Por defecto, los hacemos no clicables hasta que el JS los inicialice */
+            /* Por defecto, los hacemos NO CLICABLES y ATENUADOS visualmente al inicio */
             pointer-events: none; 
-            opacity: 0.7; /* Ligeramente atenuados visualmente al inicio */
+            opacity: 0.7; 
             cursor: default;
         }
         .whatsapp-cta-button.is-ready { /* Clase que JS añadirá cuando el botón esté listo */
@@ -400,7 +399,7 @@
     <script>
         // Configuración de Firebase (misma que en tu gestor)
         const firebaseConfig = {
-            apiKey: "AIzaSyDsCYwaKb-TdtYOytNV98A7ZLtlPCkYxRM",
+            apiKey: "AIzaSyDsCYwaKb-TdtYOytNV98A2ZLtlPCYxRM", // ✅ CLAVE DE API ACTUALIZADA
             authDomain: "prueba-3efec.firebaseapp.com",
             projectId: "prueba-3efec",
             storageBucket: "prueba-3efec.appspot.com",
@@ -412,7 +411,7 @@
         const db = firebase.firestore();
 
         // 🚨🚨🚨 IMPORTANTE: Cambia esto por el ID ÚNICO de esta landing en tu gestor 🚨🚨🚨
-        const landingId = '___CAMBIA_ESTO_POR_TU_ID_DE_LANDING___'; // Ejemplo: 'panel-vibras'
+        const landingId = 'panel-vibras'; // Ejemplo: 'panel-vibras', 'bono-exclusivo'
 
         // Función para obtener la fecha de hoy en formato 'YYYY-MM-DD'
         const getTodayDate = () => {
@@ -465,36 +464,41 @@
 
         // Función principal para inicializar la landing
         async function inicializarLanding() {
-            // Hacemos que el botón sea visible inmediatamente
+            // Hacemos que los botones sean visibles inmediatamente.
+            // La clicabilidad se activará después de cargar el número.
             const waButtons = document.querySelectorAll('.whatsapp-cta-button');
             waButtons.forEach(button => {
                 button.style.opacity = '1';
                 button.style.transform = 'scale(1)';
-                // El pointer-events: none; se gestionará al habilitar los botones
             });
 
             try {
                 await registrarPageview(); // Registra pageview al inicio
 
-                const docRef = db.collection('landings').doc(landingId);
-                const docSnap = await docRef.get();
+                // ✅ QUITAMOS la llamada a Firebase para obtener el número dinámicamente
+                // const docRef = db.collection('landings').doc(landingId);
+                // const docSnap = await docRef.get();
 
-                let numeroWhatsapp = "5491100000000"; // Número por defecto
-                if (docSnap.exists() && docSnap.data().numeroWhatsapp) {
-                    numeroWhatsapp = docSnap.data().numeroWhatsapp;
-                } else {
-                    console.warn(`Landing con ID: ${landingId} no encontrada o sin número de WhatsApp. Usando número por defecto.`);
-                    // Podrías ocultar los botones o mostrar un mensaje si no hay número
-                }
-
+                // let numeroWhatsapp = "5491100000000"; // Número por defecto
+                // if (docSnap.exists() && docSnap.data().numeroWhatsapp) {
+                //     numeroWhatsapp = docSnap.data().numeroWhatsapp;
+                // } else {
+                //     console.warn(`Landing con ID: ${landingId} no encontrada o sin número de WhatsApp. Usando número por defecto.`);
+                // }
+                
+                // ✅ NÚMERO DE WHATSAPP HARDCODEADO
+                const numeroWhatsappHardcoded = "5491137948704"; // <-- Coloca aquí el número de WhatsApp fijo que quieres usar
+                
                 const mensaje = encodeURIComponent("Hola! Me darías más información? Mi nombre es:");
                 
                 // Actualizar todos los botones y hacerlos clicables
                 waButtons.forEach(button => {
-                    button.href = `https://wa.me/${numeroWhatsapp}?text=${mensaje}`;
+                    button.href = `https://wa.me/${numeroWhatsappHardcoded}?text=${mensaje}`; // Usamos el número hardcodeado
                     button.style.pointerEvents = 'auto'; // Hacemos que sea clicable
                     button.classList.add('is-ready'); // Añade clase para indicar que está listo
-                    // Si ya tienen un listener, no añadir duplicado. Se hace en el DOMContentLoaded de abajo.
+                    // Eliminar listener anterior si existe para evitar duplicados en recargas de SPA o similares
+                    button.removeEventListener('click', registrarClick); 
+                    button.addEventListener('click', registrarClick);
                 });
 
             } catch (e) {
@@ -511,12 +515,13 @@
 
         // ✅ Lógica de Meta Pixel que ya estaba en el archivo original (adaptada)
         // Se asegura de que registrarClick se llama cuando se hace clic en cualquier botón CTA
+        // NOTA: Esta sección no es estrictamente necesaria si se inicializaLanding maneja todos los listeners.
+        // Pero la mantenemos porque estaba en tu código original para el Pixel.
         document.addEventListener('DOMContentLoaded', function() {
             var whatsappCtaButtons = document.querySelectorAll('.whatsapp-cta-button'); 
 
             whatsappCtaButtons.forEach(function(button) {
-                // Eliminar cualquier listener anterior duplicado si se re-ejecuta
-                button.removeEventListener('click', registrarClick); 
+                button.removeEventListener('click', registrarClick); // Evitar duplicar listeners
                 button.addEventListener('click', registrarClick);
             });
         });
