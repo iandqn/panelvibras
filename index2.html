@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bono de Bienvenida Exclusivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    // IMPORTANTE: Reemplaza 'TU_PIXEL_ID' con tu ID de Píxel real.
+    fbq('init', '999169384839104');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=999169384839104&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a2e;
+            background-image: linear-gradient(180deg, #16213e, #0f3460);
+            color: #e3e3e3;
+            margin: 0;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Encabezado */
+        .header .title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f7b733;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            margin: 0;
+        }
+
+        .header .subtitle {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0.5rem 0 2rem 0;
+        }
+
+        /* Sección de Información */
+        .info p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            font-weight: 400;
+        }
+
+        .info strong {
+            font-weight: 700;
+        }
+
+        .info .support {
+            color: #50c878;
+            font-weight: 700;
+            margin-top: 1.5rem;
+        }
+
+        /* Botón de Llamada a la Acción (CTA) */
+        .cta {
+            margin: 2.5rem 0;
+        }
+
+        .cta-button {
+            background-color: #2ecc71;
+            background-image: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(46, 204, 113, 0.4);
+            animation: none;
+        }
+        
+        .cta-button svg {
+            margin-right: 10px;
+            width: 28px;
+            height: 28px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Sección de Testimonios */
+        .testimonials {
+            margin-top: 3rem;
+        }
+
+        .testimonials-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e3e3e3;
+            margin-bottom: 1.5rem;
+        }
+
+        .chat-bubble {
+            background-color: #2c3e50;
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            margin: 1rem auto;
+            text-align: left;
+            max-width: 90%;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chat-author {
+            font-weight: 700;
+            color: #f7b733;
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .chat-bubble p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        /* Media Queries para Móviles */
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+            .header .title {
+                font-size: 2rem;
+            }
+            .header .subtitle {
+                font-size: 1.5rem;
+            }
+            .cta-button {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
+                width: 90%;
+                box-sizing: border-box;
+            }
+            .cta-button svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Encabezado Principal -->
+        <header class="header">
+            <h1 class="title">
+                <span role="img" aria-label="gift"></span>
+                BONO DE BIENVENIDA
+            </h1>
+            <p class="subtitle"><strong>1.000 EXTRA</strong></p> EN TU PRIMERA CARGA</p>
+        </header>
+
+        <!-- Información Adicional -->
+        <section class="info">
+            <p>CARGA MÍNIMA <strong>1.000</strong></p>
+            <p>PAGOS AL INSTANTE, <strong>SIN DEMORAS</strong></p>
+            <p class="support">ATENCIÓN PERSONALIZADA LAS 24 HORAS</p>
+        </section>
+
+        <!-- Botón de Llamada a la Acción (CTA) -->
+        <section class="cta">
+            <!-- IMPORTANTE: Reemplaza TUNUMERODEWHATSAPP por tu número real con código de país (ej: 5491122334455) -->
+            <a href="https://wa.me/5491157713317?text=%C2%A1Hola%21%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20y%20mi%20bono%20extra%20en%20mi%20primera%20carga%21%20Mi%20nombre%20es%3A" id="cta-button" class="cta-button" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 439.6c-33.8 0-66.3-8.8-94.3-25.2l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                ¡ESCRÍBENOS AHORA!
+            </a>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="testimonials">
+            <h2 class="testimonials-title">
+                <span role="img" aria-label="speech-bubble">💬</span> Lo que dicen nuestros usuarios:
+            </h2>
+            
+            <!-- Reseña 1 -->
+            <div class="chat-bubble">
+                <p class="chat-author">Carla_S</p>
+                <p>La verdad que súper contenta. Pensé que iba a ser más complicado pero me guiaron en todo momento. ¡El bono en mi primer carga me sirvió un montón para arrancar!</p>
+            </div>
+
+            <!-- Reseña 2 -->
+            <div class="chat-bubble">
+                <p class="chat-author">JuanPerez88</p>
+                <p>¡Servicio 10/10! Lo que más me gustó fue la rapidez. Cargué y a los minutos ya había ganado y estaba retirando. Cero vueltas.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Selecciona el botón principal por su ID
+            const ctaButton = document.getElementById('cta-button');
+
+            // Verifica si el botón existe en la página
+            if (ctaButton) {
+                // Agrega un 'escuchador de eventos' para el clic
+                ctaButton.addEventListener('click', function() {
+                    
+                    console.log('Botón CTA presionado. Enviando evento de Contacto a Meta Pixel.');
+
+                    // Llama a la función del Píxel de Meta para registrar el evento 'Contact'
+                    // Asegúrate de que el código base del Píxel esté cargado en tu HTML
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Contact');
+                    } else {
+                        console.log('La función fbq no está definida. Revisa la instalación del Píxel.');
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
